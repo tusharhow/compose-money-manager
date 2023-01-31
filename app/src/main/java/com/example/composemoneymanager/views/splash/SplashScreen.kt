@@ -1,4 +1,5 @@
-package com.example.composemoneymanager.views
+package com.example.composemoneymanager.views.splash
+
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
@@ -8,21 +9,29 @@ import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import com.example.composemoneymanager.R
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.composemoneymanager.R
 import com.example.composemoneymanager.ui.theme.primaryColor
-import com.example.composemoneymanager.ui.theme.seconderyColor
+import com.example.composemoneymanager.ui.theme.secondaryColor
+import kotlinx.coroutines.delay
 
 @Composable
-fun HomePage() {
-    val brush = Brush.horizontalGradient(listOf(primaryColor, seconderyColor))
+fun SplashScreen(navController: NavController) {
+    LaunchedEffect(key1 = true) {
+        delay(2000L)
+        navController.navigate("main_screen")
+    }
+
+    val brush = Brush.horizontalGradient(listOf(primaryColor, secondaryColor))
     Box(modifier = Modifier) {
         Canvas(
             modifier = Modifier
